@@ -17,5 +17,7 @@ export default function handler(req, res) {
   const fakeImagePaths = fakeImageFiles.map((file) => `/assets/f/${file}`);
   const realImagePaths = realImageFiles.map((file) => `/assets/r/${file}`);
 
-  res.status(200).json({ r: realImagePaths, f:fakeImagePaths });
+
+  res.status(200).json("test");
+//   res.status(200).json({ r: realImagePaths, f:fakeImagePaths });
 }
