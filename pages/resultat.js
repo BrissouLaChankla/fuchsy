@@ -2,8 +2,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Resultcard from "../components/Resultcard";
 
-import Image from "next/image";
-function resultat({ images }) {
+function Resultat({ images }) {
     const router = useRouter();
     const [answers, setAnswers] = useState([]);
     const [score, setScore] = useState(0);
@@ -63,4 +62,4 @@ export async function getStaticProps() {
     };
   }
 
-export default resultat; 
+export default Resultat; 
