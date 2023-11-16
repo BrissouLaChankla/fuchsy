@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import Resultcard from "../components/Resultcard";
+import ResultCard from "../components/ResultCard";
 
 function Resultat({ images }) {
     const router = useRouter();
@@ -30,7 +30,7 @@ function Resultat({ images }) {
         if(answer.answer === "fake" && images.f.includes(answer.img) || answer.answer === "real" && images.r.includes(answer.img)) {
             isCorrect = true;
         }
-        return(<Resultcard key={i} isCorrect={isCorrect} src={answer.img} />)
+        return(<ResultCard key={i} isCorrect={isCorrect} src={answer.img} />)
     });
 
     return (

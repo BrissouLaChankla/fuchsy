@@ -1,8 +1,7 @@
 import styles from '../styles/Card.module.css'
-
 import Image from "next/image"
-export default function Resultcard(props) {
 
+export default function ResultCard(props) {
     return (
         <div className={`h-48 relative rounded-lg overflow-hidden border-4 ${props.isCorrect ? "border-success" : 'border-error'}`}>
 
