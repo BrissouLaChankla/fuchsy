@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import ResultCard from "../components/ResultCard";
+import ResultCard from "../components/ResultCard.js";
 
 function Resultat({ images }) {
     const router = useRouter();
