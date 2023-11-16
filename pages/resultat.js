@@ -34,13 +34,13 @@ function Resultat({ images }) {
     });
 
     return (
-        <div className="flex flex-col justify-center h-screen text-center">
+        <div className="flex flex-col justify-center min-h-screen py-8 text-center">
             <h1 className="text-4xl font-extrabold leading-9 text-gray-900 mb-10">Résultat</h1>
             <div className='w-full'>
                 <div className='max-w-6xl px-4 text-center m-auto'>
                     <h2 className="text-2xl leading-9 text-gray-900 mb-10">Bravo, vous avez eu {score}/10, voici le résultat :</h2>
 
-                    <div className="grid grid-cols-5 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-6">
                     {resultat}
                     </div>
                 </div>
