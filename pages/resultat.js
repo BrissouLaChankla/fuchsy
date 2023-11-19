@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import ResultCard from "../components/ResultCard.js";
+import getImages from "../services/hello.js";
 
 function Resultat({ images }) {
     const router = useRouter();
@@ -50,10 +51,8 @@ function Resultat({ images }) {
 }
 
 export async function getStaticProps() {
-
-    const response = await fetch('http://localhost:3000/api/hello');
-    const data = await response.json();
-  
+   
+    const data = getImages();
   
     return {
       props: {

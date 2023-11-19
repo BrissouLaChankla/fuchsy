@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import getImages from '../services/hello';
 
 
 const Home = ({ images }) => {
@@ -48,8 +49,7 @@ const Home = ({ images }) => {
 
 export async function getStaticProps() {
 
-  const response = await fetch('http://localhost:3000/api/hello');
-  const data = await response.json();
+   const data = getImages();
 
   const shuffle = (array) => {
     return array.sort(() => Math.random() - 0.5);
