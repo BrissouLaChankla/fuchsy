@@ -1,71 +1,53 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import getImages from '../services/hello';
-
+import Link from 'next/link';
 
 const Home = ({ images }) => {
-  const router = useRouter()
-
-  const [answers, setAnswers] = useState([]);
-  const [indexImg, setIndexImg] = useState(1);
-
-  if(indexImg > 10) {
-    router.push({
-      pathname: '/resultat',
-      query: {data : JSON.stringify(answers)}
-  }, '/resultat')
-  }
-
-  const handleVote = (answer) => {
-    setAnswers([...answers, { answer, img: images[0]}]);
-    images.shift();
-    setIndexImg(() => indexImg + 1)
-  }
-
- 
 
 
   return (
-    <div className="flex flex-col justify-center h-screen text-center">
-      <h3 className='text-xl tracking-tight mb-2'>{indexImg}/10</h3>
-      <h1 className="text-4xl font-extrabold leading-9 text-gray-900 mb-10">Cette image est elle réelle ?</h1>
-      <div className='w-full'>
-        <div className='max-w-2xl px-4 text-center m-auto'>
-          <div className='skeleton rounded-none h-[50vh] rounded-t-lg relative overflow-hidden'>
-            <Image src={images[0]} layout='fill' objectFit="cover" priority alt='Photo à découvrir' />
+    <>
+
+      <div className="hero min-h-screen bg-base-200">
+          <a href="https://all-images.ai" target='_blank' className='fixed left-1/2 top-4 -translate-x-1/2 w-64 lg:hidden'>
+          <img src="/logo.webp" alt="Logo"  />
+          </a>
+        <div className="hero-content grid grid-cols-12 lg:gap-8 ">
+
+        <div className='col-span-6 lg:col-span-5 relative h-full lg:order-2 hidden lg:block'>
+            <img src="/assets/robot.webp" className="absolute z-10 -top-20 floating" />
+            <img src="/assets/socle.webp" className="absolute -top-20"  />
           </div>
-          <div className='mb-12'>
-            <button className="btn btn-success text-white rounded-none rounded-bl-lg w-3/6 text-2xl" onClick={() => handleVote("real")}>Réelle</button>
-            <button className="btn btn-error text-white rounded-none rounded-br-lg w-3/6 text-2xl" onClick={() => handleVote("fake")}>Fake</button>
+          <div className='col-span-12 lg:col-span-7 lg:order-1'>
+            {/* <div className="relative h-14 w-40">
+            <Image src="/logo.webp" alt="Logo" layout={'fill'} objectFit={'contain'} />
+          </div> */}
+            <div className='flex items-end'>
+              <h1 className="text-5xl font-bold">IA ou pas IA ? 🤔
+              </h1>
+              <div className='items-center hidden lg:flex'>
+              <small className='ms-2'>by</small>
+              <a target='_blank' href="https://all-images.ai">
+                <img src="/logo.webp" className='w-40 ms-2' alt="logo All Images" />
+              </a>
+              </div>
+            </div>
+
+            <p className="py-10 leading-8 text-xl line">Bienvenue dans notre mini jeu captivant ! Êtes-vous prêt à relever le défi de discerner si une image est générée par une intelligence artificielle ou non ? Mettez vos compétences à l'épreuve et découvrez jusqu'où votre instinct peut vous mener. Attention, vous n'avez qu'une minute !</p>
+            <Link href="/game">
+              <button className="btn btn-primary btn-lg w-full sm:w-56" >
+                Jouer maintenant !
+              </button>
+            </Link>
           </div>
+
+       
         </div>
       </div>
-    </div>
+    </>
+
   )
 
 };
-
-export async function getStaticProps() {
-
-   const data = getImages();
-
-  const shuffle = (array) => {
-    return array.sort(() => Math.random() - 0.5);
-  };
-
-  const shuffled = shuffle([...data.r, ...data.f]).slice(0, 10);
-
-  return {
-    props: {
-      images: shuffled,
-    },
-  };
-}
-
-
-
-
 
 export default Home;
