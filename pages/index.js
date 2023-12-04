@@ -23,7 +23,7 @@ const Home = ({ images }) => {
             <Image src="/logo.webp" alt="Logo" layout={'fill'} objectFit={'contain'} />
           </div> */}
             <div className='flex items-end'>
-              <h1 className="text-5xl font-bold">IA ou pas IA ? 🤔
+              <h1 className="text-5xl font-bold whitespace-nowrap">IA ou pas IA ? 🤔
               </h1>
               <div className='items-center hidden lg:flex'>
               <small className='ms-2'>by</small>
