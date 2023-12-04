@@ -5,7 +5,7 @@ export default function ResultCard(props) {
     return (
         <div className={`h-48 relative rounded-lg overflow-hidden border-4 ${props.isCorrect ? "border-success" : 'border-error'}`}>
 
-            <Image src={props.src} className='brightness-75 blur-[1px]' layout='fill' objectFit="cover" />
+            <Image src={props.src} className='brightness-75 blur-[1px]' layout='fill' alt="Result image" objectFit="cover" />
             {
                 props.isCorrect ?
                     <svg className={`${styles.icon} fill-success`} width="80px" height="80px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

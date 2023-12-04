@@ -33,7 +33,7 @@ const Game = ({ images }) => {
         query: { data: JSON.stringify(answers) }
       }, '/resultat')
     }
-  }, [counter])
+  }, [answers, counter])
 
 
 
@@ -50,7 +50,10 @@ const Game = ({ images }) => {
       <div className='w-full'>
         <div className='max-w-2xl px-4 text-center m-auto'>
           <div className='skeleton rounded-none h-[50vh] rounded-t-lg relative overflow-hidden'>
+            {
+          indexImg <= 10 &&
             <Image src={images[0]} layout='fill' objectFit="cover" priority alt='Photo à découvrir' />
+            }
           </div>
           <div className='mb-12'>
             <button className="btn btn-success text-white rounded-none rounded-bl-lg w-3/6 text-2xl" onClick={() => handleVote("real")}>Réelle</button>
