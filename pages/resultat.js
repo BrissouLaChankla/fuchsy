@@ -61,7 +61,7 @@ function Resultat({ images }) {
                                 </svg>
                             </a>
                             <a className="btn btn-xs sm:btn-sm bg-[#1da1f2] hover:bg-[#1da1f2] text-white"
-                                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`J'ai essayé le petit jeu d'All-images où il faut différencier des images réelles et celles générées par IA 🤖                   
+                                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`J'ai essayé le jeu d'@all_images_ai où il faut différencier des images réelles et celles générées par IA 🤖                   
 Voici mon score: ${score}/10.
 
 Venez tester : https://game.all-images.ai 
