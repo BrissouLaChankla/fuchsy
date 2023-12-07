@@ -69,6 +69,7 @@ export async function getStaticProps() {
     props: {
       images: getImages(),
     },
+    revalidate: 0, // In seconds
   };
 }
 
