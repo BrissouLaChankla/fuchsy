@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import ResultCard from "../components/ResultCard.js";
 import getImages from "../services/hello.js";
 import Link from "next/link.js";
-export const revalidate = false;
+export const revalidate = 0;
 function Resultat({ images }) {
     const router = useRouter();
     const [answers, setAnswers] = useState([]);
