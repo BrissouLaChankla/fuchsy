@@ -4,7 +4,8 @@ import path from 'path';
 
 export default function getImages() {
     const shuffle = (array) => {
-        return array.sort(() => Math.random() - 0.5);
+        let tempArr = array.sort(() => Math.random() - 0.5); 
+        return [...tempArr];
       };
 
   const fakeFolderPath = path.join(process.cwd(), 'public/assets/f'); 
