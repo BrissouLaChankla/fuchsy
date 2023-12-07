@@ -10,7 +10,7 @@ const Game = ({ images }) => {
 
   const [answers, setAnswers] = useState([]);
   const [indexImg, setIndexImg] = useState(1);
-  const [counter, setCounter] = useState(60);
+  const [counter, setCounter] = useState(99);
 
   const handleVote = (answer) => {
     if (indexImg <= 10) {
