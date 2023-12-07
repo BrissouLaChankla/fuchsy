@@ -3,8 +3,12 @@ import fs from 'fs';
 import path from 'path';
 
 export default function getImages() {
-    const shuffle = (array) => {
-        return [...array].sort(() => Math.random() - 0.5);
+    const fisherYatesShuffle = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
       };
 
   const fakeFolderPath = path.join(process.cwd(), 'public/assets/f'); 
@@ -21,7 +25,7 @@ export default function getImages() {
   const fakeImagePaths = fakeImageFiles.map((file) => `/assets/f/${file}`);
   const realImagePaths = realImageFiles.map((file) => `/assets/r/${file}`);
 
-  const shuffled = shuffle([...realImagePaths, ...fakeImagePaths]).slice(0, 10);
+  const shuffled = fisherYatesShuffle([...realImagePaths, ...fakeImagePaths]).slice(0, 10);
   return shuffled;
 
 
