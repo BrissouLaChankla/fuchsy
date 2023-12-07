@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import getImages from '../services/generateImages';
-
+export const revalidate = false;
 
 const Game = ({ images }) => {
   const router = useRouter()
@@ -69,7 +69,6 @@ export async function getStaticProps() {
     props: {
       images: getImages(),
     },
-    revalidate: 0, // In seconds
   };
 }
 
