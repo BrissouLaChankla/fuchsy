@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import ResultCard from "../components/ResultCard.js";
 import getImages from "../services/hello.js";
 import Link from "next/link.js";
-export const revalidate = 0;
+
+
 function Resultat({ images }) {
     const router = useRouter();
     const [answers, setAnswers] = useState([]);
@@ -129,7 +130,7 @@ Venez tester : https://game.all-images.ai
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
     const data = getImages();
 

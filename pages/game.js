@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import getImages from '../services/generateImages';
-export const revalidate = 0;
 
 
 const Game = ({ images }) => {
@@ -63,7 +62,7 @@ const Game = ({ images }) => {
 
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
 
   return {
