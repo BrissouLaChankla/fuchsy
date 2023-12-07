@@ -12,22 +12,18 @@ const Game = ({ images }) => {
   const [indexImg, setIndexImg] = useState(1);
   const [counter, setCounter] = useState(60);
 
-  if (indexImg > 10) {
-    router.push({
-      pathname: '/resultat',
-      query: { data: JSON.stringify(answers) }
-    }, '/resultat')
-  }
-
   const handleVote = (answer) => {
-    setAnswers([...answers, { answer, img: images[0] }]);
-    images.shift();
-    setIndexImg(() => indexImg + 1)
+    if (indexImg <= 10) {
+      setAnswers([...answers, { answer, img: images[0] }]);
+      images.shift();
+      setIndexImg(prevIndex => prevIndex + 1)
+    } 
   }
+  
 
   useEffect(() => {
     counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
-    if(counter === 0 ) {
+    if(counter === 0 || indexImg > 10) {
       router.push({
         pathname: '/resultat',
         query: { data: JSON.stringify(answers) }
@@ -50,10 +46,7 @@ const Game = ({ images }) => {
       <div className='w-full'>
         <div className='max-w-2xl px-4 text-center m-auto'>
           <div className='skeleton rounded-none h-[50vh] rounded-t-lg relative overflow-hidden'>
-            {
-          indexImg <= 10 &&
-            <Image src={images[0]} layout='fill' objectFit="cover" priority alt='Photo à découvrir' />
-            }
+            <Image src={images[0] || "/logo.webp"} layout='fill' objectFit="cover" priority alt='Photo à découvrir' />
           </div>
           <div className='mb-12'>
             <button className="btn btn-success text-white rounded-none rounded-bl-lg w-3/6 text-2xl" onClick={() => handleVote("real")}>Réelle</button>
