@@ -50,7 +50,7 @@ const Game = ({ images }) => {
           <div className='skeleton rounded-none h-[50vh] rounded-t-lg relative overflow-hidden'>
 
 
-            <img onLoad={() => setLoading(false)} src={images[0]} layout='fill' objectFit="cover" className={loading ? 'invisible' : ''} priority={true} alt='Photo à découvrir' />
+            <img onLoad={() => setLoading(false)} src={images[0]} className={`h-full object-cover ${loading ? 'invisible' : ''}`} priority={true} alt='Photo à découvrir' />
 
           </div>
           <div className='mb-12'>
